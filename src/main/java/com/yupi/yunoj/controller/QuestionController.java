@@ -11,12 +11,14 @@ import com.yupi.yunoj.constant.UserConstant;
 import com.yupi.yunoj.exception.BusinessException;
 import com.yupi.yunoj.exception.ThrowUtils;
 import com.yupi.yunoj.model.dto.question.*;
+import com.yupi.yunoj.model.dto.user.UserQueryRequest;
 import com.yupi.yunoj.model.entity.Question;
 import com.yupi.yunoj.model.entity.User;
 import com.yupi.yunoj.model.vo.QuestionVO;
 import com.yupi.yunoj.service.QuestionService;
 import com.yupi.yunoj.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.weaver.patterns.TypePatternQuestions;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,8 +30,8 @@ import java.util.List;
 /**
  * 题目接口
  *
- * 
- * 
+ * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
+ * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/question")
@@ -146,6 +148,29 @@ public class QuestionController {
 
     /**
      * 根据 id 获取
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/get")
+    public BaseResponse<Question> getQuestionById(long id, HttpServletRequest request) {
+        if (id <= 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        Question question = questionService.getById(id);
+        if (question == null) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+        }
+        User loginUser = userService.getLoginUser(request);
+        // 不是本人或管理员，不能直接获取所有信息
+        if (!question.getUserId().equals(loginUser.getId()) && !userService.isAdmin(loginUser)) {
+            throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
+        }
+        return ResultUtils.success(question);
+    }
+
+    /**
+     * 根据 id 获取（脱敏）
      *
      * @param id
      * @return

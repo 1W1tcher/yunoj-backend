@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.yupi.yunoj.model.dto.question.JudgeCase;
 import com.yupi.yunoj.model.dto.question.JudgeConfig;
 import com.yupi.yunoj.model.entity.Question;
 import lombok.Data;

@@ -10,7 +10,7 @@ import com.yupi.yunoj.judge.codesandbox.model.ExecuteCodeRequest;
 import com.yupi.yunoj.judge.codesandbox.model.ExecuteCodeResponse;
 import com.yupi.yunoj.judge.strategy.JudgeContext;
 import com.yupi.yunoj.model.dto.question.JudgeCase;
-import com.yupi.yunoj.model.dto.questionsubmit.JudgeInfo;
+import com.yupi.yunoj.judge.codesandbox.model.JudgeInfo;
 import com.yupi.yunoj.model.entity.Question;
 import com.yupi.yunoj.model.entity.QuestionSubmit;
 import com.yupi.yunoj.model.enums.QuestionSubmitStatusEnum;

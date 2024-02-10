@@ -3,7 +3,7 @@ package com.yupi.yunoj.judge.codesandbox.impl;
 import com.yupi.yunoj.judge.codesandbox.CodeSandBox;
 import com.yupi.yunoj.judge.codesandbox.model.ExecuteCodeRequest;
 import com.yupi.yunoj.judge.codesandbox.model.ExecuteCodeResponse;
-import com.yupi.yunoj.model.dto.questionsubmit.JudgeInfo;
+import com.yupi.yunoj.judge.codesandbox.model.JudgeInfo;
 import com.yupi.yunoj.model.enums.JudgeInfoMessageEnum;
 import com.yupi.yunoj.model.enums.QuestionSubmitStatusEnum;
 

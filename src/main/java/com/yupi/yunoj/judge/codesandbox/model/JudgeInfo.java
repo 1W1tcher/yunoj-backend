@@ -21,4 +21,5 @@ public class JudgeInfo {
     /**
      * 消耗时间（KB）
      */
+    private Long time;
 }
